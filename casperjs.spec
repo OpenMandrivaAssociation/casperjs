@@ -1,5 +1,5 @@
 %define name casperjs
-%define rel RC1
+%define rel RC3
 %define version 1.0.0
 %define release 0.%{rel}
 
@@ -14,7 +14,7 @@ Group:   System/Libraries
 Url:     http://casperjs.org/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch: noarch
-Requires: python, phantomjs >= 1.5
+Requires: python, phantomjs >= 1.6
 
 %description
 CasperJS is an open source navigation scripting & testing utility
