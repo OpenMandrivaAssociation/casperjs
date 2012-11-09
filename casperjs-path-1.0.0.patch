@@ -1,0 +1,35 @@
+--- bin/casperjs.bak	2012-09-24 13:20:31.022495341 -0400
++++ bin/casperjs	2012-09-24 13:36:47.163766207 -0400
+@@ -43,11 +43,11 @@
+     if not found:
+         CASPER_ARGS.append(arg)
+ 
+-CASPER_PATH = os.path.abspath(os.path.join(os.path.dirname(resolve(__file__)), '..'))
++CASPER_PATH = '/usr'
+ CASPER_COMMAND = os.environ.get('PHANTOMJS_EXECUTABLE', 'phantomjs').split(' ')
+ CASPER_COMMAND.extend(PHANTOMJS_ARGS)
+ CASPER_COMMAND.extend([
+-    os.path.join(CASPER_PATH, 'bin', 'bootstrap.js'),
++    os.path.join(CASPER_PATH, 'share/casperjs', 'bootstrap.js'),
+     '--casper-path=%s' % CASPER_PATH,
+     '--cli'
+ ])
+--- bin/bootstrap.js.bak	2012-09-24 13:40:16.708321687 -0400
++++ bin/bootstrap.js	2012-09-24 13:50:55.449918456 -0400
+@@ -69,6 +69,7 @@
+         })(require('fs'));
+ 
+         // casper root path
++		phantom.casperPath = '/usr/share/casperjs';
+         if (!phantom.casperPath) {
+             try {
+                 phantom.casperPath = phantom.args.map(function _map(i) {
+@@ -256,7 +257,7 @@
+             console.log(f('CasperJS version %s at %s, using PhantomJS version %s',
+                         phantom.casperVersion.toString(),
+                         phantom.casperPath, phantomVersion));
+-            console.log(fs.read(fs.pathJoin(phantom.casperPath, 'bin', 'usage.txt')));
++            console.log(fs.read(fs.pathJoin(phantom.casperPath, 'usage.txt')));
+             phantom.exit(0);
+         }
+ 
