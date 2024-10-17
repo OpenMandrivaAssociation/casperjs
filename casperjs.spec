@@ -11,7 +11,7 @@ Source0: %{name}-%{version}-%{rel}.tar.gz
 Patch0:  casperjs-path-1.0.0.patch
 License: MIT
 Group:   System/Libraries
-Url:     http://casperjs.org/
+Url:     https://casperjs.org/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch: noarch
 Requires: python, phantomjs >= 1.6
